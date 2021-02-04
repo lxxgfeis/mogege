@@ -3,9 +3,6 @@ var _Blog = _Blog || {}
 
 // Dark Mode
 _Blog.switchDarkMode = function () {
-  const currentTheme = document.cookie.replace(/(?:(?:^|.*;\s*)dark\s*=\s*([^;]*).*$)|^.*$/, '$1') || '0'
-  const isDark = currentTheme === '1'
-  document.body.classList.toggle('dark-theme', isDark)
   // 手动切换 Dark Mode
   const themeSwitcher = document.querySelectorAll('.theme-switch')
   themeSwitcher.forEach(function (themeSwitcherItem) {
@@ -52,17 +49,6 @@ _Blog.scrollIndicator = function () {
       progressBarItem.value = window.scrollY
     })
   })
-}
-
-// 在用户切换网页时改变浏览器标题
-_Blog.changeTile = function () {
-  const currentTile = document.title
-  window.onblur = function () {
-    this.document.title = '别走啊，官人 _(:з」∠)_'
-  }
-  window.onfocus = function () {
-    this.document.title = currentTile
-  }
 }
 
 // 为代码块添加 Copy 按钮
@@ -119,5 +105,4 @@ document.addEventListener('DOMContentLoaded', function () {
   _Blog.switchDarkMode()
   _Blog.switchMobileMenu()
   _Blog.scrollIndicator()
-  _Blog.changeTile()
 })
