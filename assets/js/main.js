@@ -3,14 +3,14 @@ var _Blog = _Blog || {}
 
 // Dark Mode
 _Blog.switchDarkMode = function () {
-  const currentTheme = document.cookie.replace(/(?:(?:^|.*;\s*)dark\s*\=\s*([^;]*).*$)|^.*$/, '$1') || '0';
+  const currentTheme = document.cookie.replace(/(?:(?:^|.*;\s*)dark\s*=\s*([^;]*).*$)|^.*$/, '$1') || '0'
   const isDark = currentTheme === '1'
   document.body.classList.toggle('dark-theme', isDark)
   // 手动切换 Dark Mode
-  var themeSwitcher = document.querySelectorAll('.theme-switch') || isDark
+  const themeSwitcher = document.querySelectorAll('.theme-switch')
   themeSwitcher.forEach(function (themeSwitcherItem) {
     themeSwitcherItem.addEventListener('click', () => {
-      var currentTheme = document.cookie.replace(/(?:(?:^|.*;\s*)dark\s*=\s*([^;]*).*$)|^.*$/, '$1') || '0'
+      const currentTheme = document.cookie.replace(/(?:(?:^|.*;\s*)dark\s*=\s*([^;]*).*$)|^.*$/, '$1') || '0'
       if (currentTheme === '0') {
         document.body.classList.add('dark-theme')
         document.cookie = 'dark=1;path=/'
